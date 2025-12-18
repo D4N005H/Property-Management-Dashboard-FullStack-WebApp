@@ -6,13 +6,13 @@ A robust, full-stack application designed for the efficient management of real e
 
 ## Table of Contents
 
-1.  [Prerequisites](#-prerequisites)
-2.  [Project Architecture](#-project-architecture)
-3.  [Installation & Setup](#-installation--setup)
+1.  [Prerequisites](#prerequisites)
+2.  [Project Architecture](#project-architecture)
+3.  [Installation & Setup](#installation--setup)
 4.  [Database Management (Docker)](#-database-management-docker)
-5.  [User Manual & Features](#-user-manual--features)
-6.  [Running Tests](#-running-tests)
-7.  [Technical Deep Dive](#-technical-deep-dive)
+5.  [User Manual & Features](#user-manual--features)
+6.  [Running Tests](#running-tests)
+7.  [Technical Deep Dive](#technical-deep-dive)
 
 ---
 
