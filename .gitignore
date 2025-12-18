@@ -1,36 +1,73 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
+# --- Dependencies ---
+node_modules/
 /.pnp
 .pnp.js
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# --- Build Outputs (Frontend & Backend) ---
+/dist
+/build
 /.next/
 /out/
+/coverage
+/.nyc_output
 
-# production
-/build
+# --- Environment Variables ---
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# misc
-.DS_Store
-*.pem
-
-# debug
+# --- Logs ---
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# local env files
-.env*.local
-.env
+# --- IDE & OS Files ---
+.DS_Store
+Thumbs.db
+*.pem
 
-# vercel
+# IDE - General
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode (Ignore local state, keep shared config)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# --- Framework & Tooling Specifics ---
+# Next.js / Vercel
 .vercel
-
-# typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Prisma
+/generated/prisma
+
+# --- Temporary & Runtime Files ---
+.temp
+.tmp
+pids
+*.pid
+*.seed
+*.pid.lock
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
