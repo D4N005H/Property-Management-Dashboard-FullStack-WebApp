@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Represents the entire property complex, like "Parkview Residences Berlin"
+model Property {
+  id              String   @id @default(cuid())
+  propertyNumber  String   // e.g., "10-557-PRB"
+  name            String   // e.g., "Parkview Residences Berlin"
+  managementType  String   // "WEG" or "MV"
+  propertyManager String
+  accountant      String
+  
+  // A property can have many buildings
+  buildings       Building[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// Represents a single building, like "Haus A" or "Haus B"
+model Building {
+  id          String @id @default(cuid())
+  name        String // e.g., "Haus A - Parkside"
+  street      String // e.g., "Am Fiktivpark"
+  houseNumber String // e.g., "12"
+  zipCode     String // e.g., "10557"
+  city        String // e.g., "Berlin"
+
+  // Relation to the parent Property
+  property    Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId  String
+
+  // A building can have many units
+  units       Unit[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Represents a single unit, like an apartment, office, or parking spot
+model Unit {
+  id                String @id @default(cuid())
+  unitNumber        String // e.g., "01", "02"
+  unitType          String // "Apartment", "Office", "Garden", "Parking"
+  floor             String // e.g., "Erdgeschoss"
+  entrance          String // e.g., "Eingang A"
+  sizeM2            Float  // e.g., 95.00
+  coOwnershipShare  String // e.g., "110.0/1.000"
+  constructionYear  Int    // e.g., 2023
+  roomCount         Int    // e.g., 3
+
+  // Relation to the parent Building
+  building          Building @relation(fields: [buildingId], references: [id], onDelete: Cascade)
+  buildingId        String
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
