@@ -41,7 +41,7 @@ property-manager/
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 Follow these steps to run the application.
 
