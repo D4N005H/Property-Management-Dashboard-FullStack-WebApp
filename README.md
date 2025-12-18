@@ -48,9 +48,10 @@ Follow these steps to run the application.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/D4N005H/Property-Management-Dashboard-Full-Stack-.git
+gh repo clone D4N005H/Property-Management-Dashboard-Full-Stack-
 cd property-manager
 ```
+(You may use `git clone` instead)
 
 ### 2. Start the Database (Docker)
 
